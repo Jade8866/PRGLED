@@ -1,0 +1,235 @@
+2024-10-31 17:36:08,079 ERROR c.h.p.l.p.i.BordProxyImpl [main] null
+java.net.ConnectException: null
+	at jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:951) ~[java.net.http:?]
+	at jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133) ~[java.net.http:?]
+	at ch.hslu.prg.ledboard.proxy.internal.BordProxyImpl.turnLedOn(BordProxyImpl.java:166) [proxy.jar:?]
+	at ch.hslu.prg.ledboard.proxy.Led.turnOn(Led.java:66) [proxy.jar:?]
+	at ch.hslu.prg.ledmuster.g03.ClientApp.ledsOnOff(ClientApp.java:55) [bin/:?]
+	at ch.hslu.prg.ledmuster.g03.ClientApp.main(ClientApp.java:24) [bin/:?]
+Caused by: java.net.ConnectException
+	at jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1028) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:227) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:238) ~[java.net.http:?]
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.nio.channels.ClosedChannelException
+	at sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:202) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:786) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:874) ~[?:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:210) ~[java.net.http:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:571) ~[?:?]
+	at jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:238) ~[java.net.http:?]
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+2024-10-31 17:58:50,826 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-10-31 17:58:50,836 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-10-31 17:59:27,317 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-10-31 17:59:27,325 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-01 11:39:42,210 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 11:43:48,515 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 11:47:29,994 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 11:49:03,571 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 11:54:06,629 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 11:55:36,330 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 12:03:35,081 ERROR c.h.p.l.p.i.BordProxyImpl [main] HTTP/1.1 header parser received no bytes
+java.io.IOException: HTTP/1.1 header parser received no bytes
+	at jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:964) ~[java.net.http:?]
+	at jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133) ~[java.net.http:?]
+	at ch.hslu.prg.ledboard.proxy.internal.BordProxyImpl.turnLedOn(BordProxyImpl.java:166) [proxy.jar:?]
+	at ch.hslu.prg.ledboard.proxy.Led.turnOn(Led.java:66) [proxy.jar:?]
+	at ch.hslu.prg.ledmuster.g03.ClientApp.ledsColoredOnOff(ClientApp.java:46) [bin/:?]
+	at ch.hslu.prg.ledmuster.g03.ClientApp.main(ClientApp.java:17) [bin/:?]
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+	at jdk.internal.net.http.common.Utils.wrapWithExtraDetail(Utils.java:388) ~[java.net.http:?]
+	at jdk.internal.net.http.Http1Response$HeadersReader.onReadError(Http1Response.java:590) ~[java.net.http:?]
+	at jdk.internal.net.http.Http1AsyncReceiver.checkForErrors(Http1AsyncReceiver.java:302) ~[java.net.http:?]
+	at jdk.internal.net.http.Http1AsyncReceiver.flush(Http1AsyncReceiver.java:268) ~[java.net.http:?]
+	at jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask.run(SequentialScheduler.java:182) ~[java.net.http:?]
+	at jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask.run(SequentialScheduler.java:149) ~[java.net.http:?]
+	at jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207) ~[java.net.http:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.io.EOFException: EOF reached while reading
+	at jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber.onComplete(Http1AsyncReceiver.java:601) ~[java.net.http:?]
+	at jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadSubscription.signalCompletion(SocketTube.java:648) ~[java.net.http:?]
+	at jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.read(SocketTube.java:853) ~[java.net.http:?]
+	at jdk.internal.net.http.SocketTube$SocketFlowTask.run(SocketTube.java:181) ~[java.net.http:?]
+	at jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207) ~[java.net.http:?]
+	at jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:233) ~[java.net.http:?]
+	at jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.signalReadable(SocketTube.java:782) ~[java.net.http:?]
+	at jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent.signalEvent(SocketTube.java:965) ~[java.net.http:?]
+	at jdk.internal.net.http.SocketTube$SocketFlowEvent.handle(SocketTube.java:253) ~[java.net.http:?]
+	at jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:1467) ~[java.net.http:?]
+	at jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:1412) ~[java.net.http:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1412) ~[java.net.http:?]
+2024-11-01 12:07:19,713 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-01 12:12:43,974 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-01 12:15:42,723 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:02:12,255 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:10:27,210 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:19:20,577 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:29:13,246 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:33:21,386 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:36:15,185 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:38:44,707 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:57:49,851 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 11:59:28,090 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 12:01:16,220 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 12:02:39,831 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 12:07:05,610 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-03 12:19:40,208 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:23:28,335 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:29:43,804 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:31:52,930 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:38:51,390 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:40:48,034 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:41:32,909 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:45:23,954 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:47:09,357 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:47:53,558 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 12:53:16,197 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 15:00:26,579 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-03 15:00:26,591 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-03 15:17:38,415 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-03 15:17:38,424 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-03 16:32:10,314 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-03 16:32:10,322 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-03 16:39:49,939 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 16:43:24,306 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-03 16:45:04,341 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-04 13:57:22,836 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-04 13:58:16,413 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-04 13:59:02,329 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-04 15:07:58,829 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 400)
+2024-11-04 18:16:05,176 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-04 18:17:45,125 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-04 18:19:17,481 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-04 18:27:57,252 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning off failed (HttpStatus Code: 500)
+2024-11-04 18:28:20,216 ERROR c.h.p.l.p.i.BordProxyImpl [main] null
+java.net.ConnectException: null
+	at jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:951) ~[java.net.http:?]
+	at jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133) ~[java.net.http:?]
+	at ch.hslu.prg.ledboard.proxy.internal.BordProxyImpl.turnLedOn(BordProxyImpl.java:166) [proxy.jar:?]
+	at ch.hslu.prg.ledboard.proxy.Led.turnOn(Led.java:66) [proxy.jar:?]
+	at ch.hslu.prg.ledmuster.g3_08.ClientApp.ledsOnOff(ClientApp.java:62) [bin/:?]
+	at ch.hslu.prg.ledmuster.g3_08.ClientApp.main(ClientApp.java:18) [bin/:?]
+Caused by: java.net.ConnectException
+	at jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1028) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:227) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:238) ~[java.net.http:?]
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.nio.channels.ClosedChannelException
+	at sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:202) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:786) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:874) ~[?:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:210) ~[java.net.http:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:571) ~[?:?]
+	at jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:238) ~[java.net.http:?]
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+2024-11-04 19:42:19,258 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 500)
+2024-11-08 21:45:17,058 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:45:27,805 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:46:30,754 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:47:30,876 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:47:58,900 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:51:15,509 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:52:32,923 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:53:58,094 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:57:48,774 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:59:02,225 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 21:59:51,557 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 22:00:13,171 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-08 22:01:41,089 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-09 23:18:48,602 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:38:33,519 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:39:23,731 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:40:47,257 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:41:04,913 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:41:28,891 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:42:37,727 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:42:49,758 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:43:19,946 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:45:14,508 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:48:41,688 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:49:00,021 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:59:08,560 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 10:59:50,829 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:00:44,918 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:01:30,718 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:03:13,802 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:05:18,071 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:07:02,909 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:08:54,786 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:10:02,867 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:10:02,878 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:10:02,886 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:10:02,894 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:10:48,315 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 11:13:29,486 ERROR c.h.p.l.p.i.BordProxyImpl [main] null
+java.net.ConnectException: null
+	at jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:951) ~[java.net.http:?]
+	at jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133) ~[java.net.http:?]
+	at ch.hslu.prg.ledboard.proxy.internal.BordProxyImpl.turnLedOn(BordProxyImpl.java:166) [proxy.jar:?]
+	at ch.hslu.prg.ledboard.proxy.Led.turnOn(Led.java:66) [proxy.jar:?]
+	at ch.hslu.prg.ledmuster.g3_08.ClientApp.ledsOnOff(ClientApp.java:65) [bin/:?]
+	at ch.hslu.prg.ledmuster.g3_08.ClientApp.main(ClientApp.java:19) [bin/:?]
+Caused by: java.net.ConnectException
+	at jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1028) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:227) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:238) ~[java.net.http:?]
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.nio.channels.ClosedChannelException
+	at sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:202) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:786) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:874) ~[?:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:210) ~[java.net.http:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:571) ~[?:?]
+	at jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:280) ~[java.net.http:?]
+	at jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:238) ~[java.net.http:?]
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+2024-11-10 11:33:50,384 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
