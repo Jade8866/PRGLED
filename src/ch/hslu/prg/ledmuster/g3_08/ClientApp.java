@@ -1,64 +1,115 @@
-package ch.hslu.prg.ledmuster.g3_08;
+	package ch.hslu.prg.ledmuster.g3_08;
 
-import ch.hslu.prg.ledboard.proxy.BoardService;
-import ch.hslu.prg.ledboard.proxy.Led;
-import ch.hslu.prg.ledboard.proxy.LedColor;
+	import ch.hslu.prg.ledboard.proxy.BoardService;
+	import ch.hslu.prg.ledboard.proxy.Led;
+	import ch.hslu.prg.ledboard.proxy.LedColor;
+	import java.util.Scanner;
 
-public class ClientApp {
+	public class ClientApp {
 
-    public static void main(String[] args) {
-        BoardService service = new BoardService();
-        createRunningLight(service);
-    }
+		public static void main(String[] args) {
+			BoardService service = new BoardService();
+			ledsOnOff(service);
+		}
 
-    /**
-     * Creates a row of LEDs divided into four sections with different colors:
-     * - The first 8 LEDs (from the left) are yellow.
-     * - The next 8 LEDs are blue.
-     * - The next 8 LEDs are red.
-     * - The last 8 LEDs (from the right) are green.
-     *
-     * Then, it turns on all LEDs to verify the sections.
-     *
-     * @param service BoardService instance controlling the LEDs
-     */
-    private static void createRunningLight(BoardService service) {
-        int cols = 32;  // Total number of LEDs in the row
+		private static void ledsOnOff(BoardService service) {
+			// Define the colors in a fixed sequence
+			LedColor[] colors = {LedColor.YELLOW, LedColor.BLUE, LedColor.RED, LedColor.GREEN};
+			
+			int maxRows = service.MAX_ROWS;
+			int cols = 8; // Assuming 8 columns for LEDs, adjust if needed
+			
+			Scanner sc = new Scanner(System.in); // Scanner object for user input
+			int rows;
 
-        // Step 1: Add a row of LEDs to the board without specifying a color (default red)
-        service.add(1, LedColor.RED);  // Adds a row at index 0 with default red color
+			// Prompt the user for the number of rows
+			do {
+				System.out.print("Enter the number of rows for LEDs (1-" + maxRows + "): ");
+				rows = sc.nextInt();
+			} while (rows <= 0 || rows > maxRows);
 
-        // Step 2: Get the LED array
-        Led[][] leds = service.getAllLeds();
-      /*  if (leds == null || leds.length == 0 || leds[0].length < cols) {
-            System.out.println("Error: LED array is not properly initialized.");
-            return;
-        }
+			sc.close(); // Close Scanner after use
 
-        // Step 3: Divide the row into four 8-LED sections and assign colors
-        for (int col = 0; col < cols; col++) {
-            if (col < 8) {
-                // First section (leftmost 8 LEDs) - Yellow
-                service.replace(leds[0][col], LedColor.YELLOW);
-            } else if (col < 16) {
-                // Second section - Blue
-                service.replace(leds[0][col], LedColor.BLUE);
-            } else if (col < 24) {
-                // Third section - Red (already red by default, so this step is optional)
-                service.replace(leds[0][col], LedColor.RED);
-            } else {
-                // Fourth section (rightmost 8 LEDs) - Green
-                service.replace(leds[0][col], LedColor.GREEN);
-            }
-        }
+			Led[][] leds = service.getAllLeds();
+			if (leds == null || leds.length > maxRows) {
+				System.out.println("Error: LED array size does not match the expected number of rows.");
+				return;
+			}
 
-        // Step 4: Turn on all LEDs to verify the setup
-        for (int col = 0; col < cols; col++) {
-            leds[0][col].turnOn();
-        }
+			// Variables to track color states for synchronization checks
+			int xYellow = 0, xBlue = 0, xRed = 0, xGreen = 0;
+			int yYellow = 0, yBlue = 0, yRed = 0, yGreen = 0;
 
-        // Pause for verification
-        service.pauseExecution(2000);  // Pause for 2 seconds to view the LED arrangement
-    }*/
-}
-}
+			// Cycle through the rows
+			for (int row = 0; row < rows; row++) {
+				int colorIndex = 0;
+
+				// Cycle through columns in the row
+				for (int col = 0; col < cols; col++) {
+					LedColor currentColor = colors[colorIndex];
+
+					// Ensure that the row and column indices are valid
+				  /*  if (row >= leds.length || col >= leds[row].length) {
+						System.out.println("Error: Invalid row or column index. Row: " + row + ", Column: " + col);
+						continue;
+					}*/
+
+					// Add LED to the specified row with the current color
+					service.add(row+1, currentColor);
+					 leds = service.getAllLeds();
+					// Turn on the LED at the specified row and column
+					leds[row][col].turnOn();
+					System.out.println("LED at row " + (row + 1) + ", column " + col + " set to color: " + currentColor);
+
+					// Track color state changes for specific indices
+					if (col == 1) {
+						if (currentColor == LedColor.YELLOW) {
+							xYellow++;
+							service.replace(leds[row][col], LedColor.YELLOW);
+						} else if (currentColor == LedColor.BLUE) {
+							xBlue++;
+							service.replace(leds[row][col], LedColor.BLUE);
+						} else if (currentColor == LedColor.RED) {
+							xRed++;
+							service.replace(leds[row][col], LedColor.RED);
+						} else if (currentColor == LedColor.GREEN) {
+							xGreen++;
+							service.replace(leds[row][col], LedColor.GREEN);
+						}
+					}
+					
+					if (col == 15 || col == 32) {
+						if (currentColor == LedColor.YELLOW) {
+							yYellow++;
+							service.replace(leds[row][col], LedColor.YELLOW);
+						} else if (currentColor == LedColor.BLUE) {
+							yBlue++;
+							service.replace(leds[row][col], LedColor.BLUE);
+						} else if (currentColor == LedColor.RED) {
+							yRed++;
+							service.replace(leds[row][col], LedColor.RED);
+						} else if (currentColor == LedColor.GREEN) {
+							yGreen++;
+							service.replace(leds[row][col], LedColor.GREEN);
+						}
+					}
+
+					// Check synchronization at specific indices
+					if (col == 1 || col == 15 || col == 32) {
+						if (xYellow == yYellow && xBlue == yBlue && xRed == yRed && xGreen == yGreen) {
+							System.out.println("LEDs are in sync at index " + col + ", proceeding normally.");
+						} else {
+							System.out.println("LEDs out of sync at index " + col + ", adjusting sequence.");
+							colorIndex = (colorIndex + 1) % colors.length; // Shift the color sequence
+						}
+					}
+
+					// Move to the next color in the fixed sequence
+					colorIndex = (colorIndex + 1) % colors.length;
+				}
+			}
+
+			// Pause for verification of LEDs
+			service.pauseExecution(2000);
+		}
+	}
