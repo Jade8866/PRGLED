@@ -9,8 +9,55 @@
 
 		public static void main(String[] args) {
 			BoardService service = new BoardService();
-			ledsOnOff(service);
+			initializeBoard(service);
+			//ledsOnOff(service);
+			for (int i =0; i<96; i++) {
+			shiftLeds(service, 1); 
+			//amount is now 1;
+			}
 		}
+		
+		
+		public static void initializeBoard(BoardService service) {
+			//int rows = 1;
+			//int cols = 32;
+			service.add(1,LedColor.RED);//add one row
+			Led[][] leds= service.getAllLeds();
+			for (int i =0; i<leds[0].length; i++) {
+				LedColor color = LedColor.RED;
+				if(i<8) {
+					color = LedColor.YELLOW;
+					
+				}else if(i<16) {
+					color = LedColor.BLUE;
+					
+				}else if(i<24) {
+					color = LedColor.RED;
+				}else if(i<32) {
+					color = LedColor.GREEN;
+				}
+				Led led= service.replace(leds[0][i], color);
+				led.turnOn();
+			}
+			
+		}
+		
+		
+		public static void shiftLeds(BoardService service, int amount) {
+			Led[][] leds = service.getAllLeds();
+			for(int i = 0; i < leds[0].length; i++ ) {
+				int newIndex = (i + amount) % leds[0].length;
+				
+				Led led = service.replace(leds[0][newIndex], leds[0][i].getColor());
+				led.turnOn();
+				
+			}
+			
+			
+			
+			
+		}
+		
 
 		private static void ledsOnOff(BoardService service) {
 			// Define the colors in a fixed sequence

@@ -234,3 +234,5 @@ Caused by: java.nio.channels.ClosedChannelException
 	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
 2024-11-10 11:33:50,384 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
 2024-11-10 12:35:03,470 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
+2024-11-10 13:34:01,665 ERROR c.h.p.l.p.i.BordProxyImpl [main] Adding of leds failed (HttpStatus Code: 500)
+2024-11-10 13:54:12,388 ERROR c.h.p.l.p.i.BordProxyImpl [main] Turning on failed (HttpStatus Code: 400)
